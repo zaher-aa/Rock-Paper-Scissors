@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock, Paper, and Scissors</title>
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="player user">
+          <span class="username">Player</span>
+          <span class="score">0</span>
+        </div>
+        <div class="player computer">
+          <span>Computer</span>
+          <span class="score">0</span>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h1>Choose an option</h1>
+        <div class="images">
+          <div class="user-imgs">
+            <img
+              src="./images/rock.png"
+              class="active"
+              data-type="rock"
+              alt="Rock"
+            />
+            <img src="./images/paper.png" data-type="paper" alt="Paper" />
+            <img
+              src="./images/scissors.png"
+              data-type="scissors"
+              alt="Scissors"
+            />
+          </div>
+          <div class="computer-imgs">
+            <img src="./images/rock.png" class="active" alt="Rock" />
+            <img src="./images/paper.png" alt="Paper" />
+            <img src="./images/scissors.png" alt="Scissors" />
+          </div>
+        </div>
+        <div class="options">
+          <button data-type="rock">Rock</button>
+          <button data-type="paper">Paper</button>
+          <button data-type="scissors">Scissors</button>
+        </div>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
