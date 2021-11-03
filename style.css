@@ -70,7 +70,12 @@
   margin-right: 10px;
 }
 
+.popup input[type="number"] {
+  width: 85px;
+}
+
 .popup button {
+  margin-top: 10px;
   padding: 10px;
   color: white;
   background-color: #1b911b;
@@ -103,6 +108,38 @@
   background-color: rgb(0 0 0 / 0.7);
 }
 /* Popup */
+
+/* Try again */
+.try-again-cont {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#try-again {
+  padding: 7px;
+  width: 120px;
+  border: none;
+  background-color: #ee4b4b;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+#try-again:focus {
+  box-shadow: 0 0 1px 2px #9b9be1b6;
+}
+/* Try again */
 
 * {
   padding: 0;
@@ -147,9 +184,10 @@ header .container .player span:first-child {
 }
 
 /* Main */
-h1 {
+main h1 {
   text-align: center;
   margin: 50px 0 10px 0;
+  font-size: 2.2rem;
 }
 .images {
   display: flex;
@@ -158,18 +196,16 @@ h1 {
 }
 
 .images > div {
-  width: 150px;
+  width: 170px;
   height: 200px;
   position: relative;
   overflow: hidden;
-  animation: shake 0.5s;
-  -webkit-animation: shake 0.5s;
-  animation-iteration-count: 2;
-  animation-play-state: paused;
 }
 
 .images > div.active {
-  animation-play-state: running;
+  animation: shake 0.5s;
+  -webkit-animation: shake 0.5s;
+  animation-iteration-count: 2;
 }
 
 .images img {
