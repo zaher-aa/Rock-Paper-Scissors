@@ -105,7 +105,13 @@
   height: 100%;
   top: 0;
   left: 0;
+  background-color: transparent;
+  z-index: -999999;
+}
+
+.layer.active {
   background-color: rgb(0 0 0 / 0.7);
+  z-index: 1;
 }
 /* Popup */
 
