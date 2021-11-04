@@ -1,6 +1,6 @@
 let attemptsNum = 3;
 // Popup
-const start = () => {
+window.onload = () => {
   let popup = document.createElement("section");
   popup.className = "popup";
   let title = document.createElement("h1");
@@ -21,42 +21,32 @@ const start = () => {
   document.body.append(popup);
   setTimeout(() => {
     let layer = document.createElement("div");
-    layer.className = "layer";
+    layer.className = "layer active";
     document.body.append(layer);
     popup.classList.add("active");
   }, 500);
-  confirmStart();
 };
 
-const confirmStart = () => {
-  let username = document.querySelector("header .user .username");
+let username = document.querySelector("header .user .username");
 
-  document.addEventListener("click", (e) => {
-    if (!e.target.matches("#confirm")) return;
-    let inputField = document.querySelector(".popup input").value.trim();
-    inputField !== ""
-      ? (username.textContent =
-          inputField.slice(0, 1).toUpperCase() + inputField.slice(1))
-      : (username.textContent = "Player");
-    let numOfTries = document.querySelector(".popup input[type='number']");
-    if (+numOfTries.value > 0) attemptsNum = +numOfTries.value;
-    document.querySelector(".popup").classList.remove("active");
-    setTimeout(() => {
-      if (document.querySelector(".popup")) {
-        document.querySelector(".popup").remove();
-      }
-    }, 500);
-    if (document.querySelector(".layer")) {
-      document.querySelector(".layer").remove();
+document.addEventListener("click", (e) => {
+  if (!e.target.matches("#confirm")) return;
+  let inputField = document.querySelector(".popup input").value.trim();
+  inputField !== ""
+    ? (username.textContent =
+        inputField.slice(0, 1).toUpperCase() + inputField.slice(1))
+    : (username.textContent = "Player");
+  let numOfTries = document.querySelector(".popup input[type='number']");
+  if (+numOfTries.value > 0) attemptsNum = +numOfTries.value;
+  document.querySelector(".popup").classList.remove("active");
+  document.querySelector(".layer").classList.remove("active");
+  document.querySelectorAll(".options button").forEach((o) => {
+    if (o.disabled) {
+      o.removeAttribute("disabled");
     }
-    document.querySelectorAll(".options button").forEach((o) => {
-      if (o.disabled) {
-        o.removeAttribute("disabled");
-      }
-    });
-    startGame();
   });
-};
+  startGame();
+});
 
 const startGame = () => {
   let triesCount = 0;
@@ -130,6 +120,8 @@ const tryAgain = () => {
 
   document.addEventListener("click", (e) => {
     if (!e.target.matches("#try-again")) return;
+    document.querySelector(".popup").classList.add("active");
+    document.querySelector(".layer").classList.add("active");
     document.querySelector(".user .score").textContent = 0;
     document.querySelector(".computer .score").textContent = 0;
     document.querySelector("main h1").textContent = "Choose an option";
@@ -141,8 +133,5 @@ const tryAgain = () => {
       if (i.dataset.type === "rock") i.classList.add("active");
     });
     e.target.remove();
-    start();
   });
 };
-
-start();
